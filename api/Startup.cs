@@ -30,7 +30,7 @@ namespace api
                 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "NEW2 Generate Random Data API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "NEW Generate Random Data API", Version = "v1" });
             });
 
             services.Configure<MailServerConfig>(Configuration.GetSection("mailserver"));
@@ -46,7 +46,7 @@ namespace api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Generate Random Data API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "New Generate Random Data API V1");
             });
 
             var redirectRootToSwagger = new RewriteOptions()
