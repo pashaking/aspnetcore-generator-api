@@ -1,32 +1,19 @@
-using System;
-using System.Linq;
-using api.Controllers;
-using Xunit;
+<Project Sdk="Microsoft.NET.Sdk">
 
-namespace tests
-{
-    public class RangeTests
-    {
-        [Fact]
-        public void CountShouldControlNumberOfResults()
-        {
-            var range = new Range { Count = 3 };
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
 
-            var generated = range.Of(() => "");
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
 
-            Assert.Equal(3, generated.Count());
-        }
-        
-        [Fact]
-        public void SortShouldOrderResults()
-        {
-            var range = new Range { Count = 3, Sort = true };
-            var values = new[] { "a", "c", "b" };
-            var counter = 0;
-            var generated = range.Of(() => values[counter++]);
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170427-09" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\api\api.csproj" />
+  </ItemGroup>
 
-            Assert.Equal(new[] { "a", "b", "c" }, generated.ToArray());
-        }
-    }
-}
+</Project>
