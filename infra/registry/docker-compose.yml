@@ -7,6 +7,14 @@ services:
       - registry:/var/lib/registry
     ports:
       - "55000:5000"
+    restart: always
+
+  portainer:
+    image: portainer/portainer:latest
+    ports:
+      - 9000:9000
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
 volumes:
